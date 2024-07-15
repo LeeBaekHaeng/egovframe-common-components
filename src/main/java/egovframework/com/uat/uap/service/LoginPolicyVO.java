@@ -18,6 +18,7 @@
 
 package egovframework.com.uat.uap.service;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class LoginPolicyVO extends LoginPolicy {
@@ -33,32 +34,39 @@ public class LoginPolicyVO extends LoginPolicy {
 	/**
 	 * 삭제 여부
 	 */
-	String [] delYn;
-	
+	String[] delYn;
+
 	/**
 	 * @return the loginPolicyList
 	 */
 	public List<LoginPolicyVO> getLoginPolicyList() {
 		return loginPolicyList;
 	}
+
 	/**
 	 * @param loginPolicyList the loginPolicyList to set
 	 */
 	public void setLoginPolicyList(List<LoginPolicyVO> loginPolicyList) {
 		this.loginPolicyList = loginPolicyList;
 	}
+
 	/**
 	 * @return the delYn
 	 */
 	public String[] getDelYn() {
-		return delYn;
+		if (delYn != null) {
+			return Arrays.stream(delYn).toArray(String[]::new);
+		}
+		return null;
 	}
+
 	/**
 	 * @param delYn the delYn to set
 	 */
 	public void setDelYn(String[] delYn) {
-		this.delYn = delYn;
+		if (delYn != null) {
+			this.delYn = Arrays.stream(delYn).toArray(String[]::new);
+		}
 	}
-	
-	
+
 }
